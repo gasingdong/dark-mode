@@ -234,8 +234,8 @@ img {
 .coin__title {
   display: block;
   margin-left: 8px;
-    min-width: 160px;
-text-align: left;
+  min-width: 160px;
+  text-align: left;
 }
 
 .coin__symbol {
@@ -254,5 +254,37 @@ text-align: left;
   .navbar {
     background-color: #1F2022;
     border: none;
+
+    h1 {
+      color: #fff;
+    }
   }
+}
+
+.coin_card {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.coin_card__logo {
+  margin: 20px 0;
+  width: 200px;
+}
+
+.coin_card__row {
+  display: flex;
+  width: 300px;
+}
+
+.coin_card__header {
+  flex: 50%;
+  text-align: left;
+}
+
+.coin-card__info {
+  flex: 50%;
+  text-align: right;
 }
