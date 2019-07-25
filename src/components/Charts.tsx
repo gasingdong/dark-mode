@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Chart from './Chart'
 
 interface Coin {
+  id: string
   name: string
   symbol: string
   image: string
@@ -22,7 +23,7 @@ const Charts = ({ coinData }: { coinData: Coin[] }): ReactElement => {
             <h2 className="coin__title">{coin.name}</h2>
             <h4 className="coin__symbol">{coin.symbol}</h4>
             <div className="coin__logo">
-              <Link to={`/${coin.symbol}`}>
+              <Link to={`/${coin.id}`}>
                 <img src={coin.image} height="40" alt={coin.name} />
               </Link>
             </div>
