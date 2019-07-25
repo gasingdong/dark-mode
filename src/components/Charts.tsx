@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import { Link } from 'react-router-dom'
 import Chart from './Chart'
 
 interface Coin {
@@ -21,7 +22,9 @@ const Charts = ({ coinData }: { coinData: Coin[] }): ReactElement => {
             <h2 className="coin__title">{coin.name}</h2>
             <h4 className="coin__symbol">{coin.symbol}</h4>
             <div className="coin__logo">
-              <img src={coin.image} height="40" alt={coin.name} />
+              <Link to={`/${coin.symbol}`}>
+                <img src={coin.image} height="40" alt={coin.name} />
+              </Link>
             </div>
             <Chart sparklineData={coin.sparkline_in_7d.price} />
           </div>

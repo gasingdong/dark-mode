@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactElement } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
@@ -28,9 +29,20 @@ const App = (): ReactElement => {
     <div className="App">
       <Navbar />
       <Charts coinData={coinData} />
+      <Route
+        path="/"
+        exact
+        render={(): ReactElement => <Charts coinData={coinData} />}
+      />
+      {/* <Route path="/:coin" exact component={<></>} /> */}
     </div>
   )
 }
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  rootElement
+)
