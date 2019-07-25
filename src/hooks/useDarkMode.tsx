@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocalStorage } from './useLocalStorage'
 
-export const useDarkMode = (): (boolean | ((value: boolean) => void))[] => {
+export const useDarkMode = (): [boolean, (value: boolean) => void] => {
   const [value, setValue] = useLocalStorage('darkMode', false)
 
   useEffect((): void => {

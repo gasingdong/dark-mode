@@ -3,7 +3,7 @@ import { useState } from 'react'
 export const useLocalStorage = (
   key: string,
   initialValue: boolean
-): (boolean | ((value: boolean) => void))[] => {
+): [boolean, (value: boolean) => void] => {
   const [storedValue, setStoredValue] = useState((): boolean => {
     const item = window.localStorage.getItem(key)
     return item ? JSON.parse(item) : initialValue

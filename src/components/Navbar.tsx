@@ -1,7 +1,8 @@
-import React, { useState, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
+import { useDarkMode } from '../hooks/useDarkMode'
 
 const Navbar = (): ReactElement => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useDarkMode()
   const toggleMode = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
