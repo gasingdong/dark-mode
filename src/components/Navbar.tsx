@@ -1,9 +1,13 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import { useDarkMode } from '../hooks/useDarkMode'
 
-const Navbar = (): ReactElement => {
-  const [darkMode, setDarkMode] = useDarkMode()
+const Navbar = ({
+  darkMode,
+  setDarkMode,
+}: {
+  darkMode: boolean
+  setDarkMode: (value: boolean) => void
+}): ReactElement => {
   const toggleMode = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {

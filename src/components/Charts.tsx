@@ -14,7 +14,13 @@ interface Sparkline {
   price: number[]
 }
 
-const Charts = ({ coinData }: { coinData: Coin[] }): ReactElement => {
+const Charts = ({
+  coinData,
+  darkMode,
+}: {
+  coinData: Coin[]
+  darkMode: boolean
+}): ReactElement => {
   return (
     <div className="charts">
       {coinData.map(
@@ -27,7 +33,10 @@ const Charts = ({ coinData }: { coinData: Coin[] }): ReactElement => {
                 <img src={coin.image} height="40" alt={coin.name} />
               </Link>
             </div>
-            <Chart sparklineData={coin.sparkline_in_7d.price} />
+            <Chart
+              sparklineData={coin.sparkline_in_7d.price}
+              darkMode={darkMode}
+            />
           </div>
         )
       )}

@@ -8,9 +8,11 @@ import Navbar from './components/Navbar'
 
 import './styles.scss'
 import SingleCoinCharts from './components/CoinInfo'
+import { useDarkMode } from './hooks/useDarkMode'
 
 const App = (): ReactElement => {
   const [coinData, setCoinData] = useState([])
+  const [darkMode, setDarkMode] = useDarkMode()
 
   useEffect((): void => {
     async function getCoinData(): Promise<void> {
@@ -28,11 +30,13 @@ const App = (): ReactElement => {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Route
         path="/"
         exact
-        render={(): ReactElement => <Charts coinData={coinData} />}
+        render={(): ReactElement => (
+          <Charts coinData={coinData} darkMode={darkMode} />
+        )}
       />
       <Route
         path="/:coin"
